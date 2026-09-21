@@ -118,9 +118,9 @@ export default function Hero() {
         style={{ y: textY, opacity: fadeOp, minHeight: '100svh' }}
         className={`
           relative z-10 flex flex-col
-          /* mobile: justify end (overlay at bottom) */
-          justify-end px-6 pb-12 pt-24
-          /* desktop: left side, centered vertically with top padding for fixed nav */
+          /* mobile: justify end, positioned lower down with tighter padding */
+          justify-end px-5 sm:px-8 pb-14 pt-28
+          /* desktop: left side, centered vertically */
           lg:justify-center
           lg:w-[54%] lg:px-16 xl:px-24 lg:pt-32 lg:pb-16
         `}
@@ -130,10 +130,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: [0.19, 1, 0.22, 1] }}
-          className="flex items-center gap-3 mb-5 lg:mb-7"
+          className="flex items-center gap-3 mb-3 lg:mb-7"
         >
           <div className="w-5 h-px bg-white/50 lg:bg-charcoal/35" />
-          <p className="text-[10px] font-sans font-light tracking-ultra-wide uppercase text-white/70 lg:text-charcoal-mid">
+          <p className="text-[9px] sm:text-[10px] font-sans font-light tracking-ultra-wide uppercase text-white/70 lg:text-charcoal-mid">
             CLINICAL DENTAL TECHNICIAN · UK
           </p>
         </motion.div>
@@ -143,9 +143,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
-          className="font-serif font-light leading-[1.04] mb-5 lg:mb-6
+          className="font-serif font-light leading-[1.04] mb-3 lg:mb-6
                      text-white lg:text-charcoal"
-          style={{ fontSize: 'clamp(2.6rem, 6.5vw, 5.5rem)' }}
+          style={{ fontSize: 'clamp(2.1rem, 5.5vw, 5.5rem)' }}
         >
           Making dentures<br />
           <span className="text-white/70 lg:text-charcoal/55">that change lives.</span>
@@ -156,7 +156,7 @@ export default function Hero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.7, delay: 0.28 }}
-          className="origin-left w-8 h-px bg-white/40 lg:bg-charcoal/25 mb-5"
+          className="origin-left w-8 h-px bg-white/40 lg:bg-charcoal/25 mb-3 lg:mb-5"
         />
 
         {/* Sub */}
@@ -164,7 +164,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.3 }}
-          className="font-sans text-sm md:text-base font-light text-white/65 lg:text-charcoal-mid leading-relaxed mb-8 max-w-md"
+          className="font-sans text-xs sm:text-sm md:text-base font-light text-white/75 lg:text-charcoal-mid leading-relaxed mb-6 lg:mb-8 max-w-sm lg:max-w-md"
         >
           Dentures made and fitted by the same technician — precision,
           care and a personal approach from start to finish.
@@ -194,12 +194,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.43 }}
-          className="flex flex-wrap gap-3 items-center"
+          className="flex flex-wrap gap-2.5 sm:gap-3 items-center"
         >
           <button
             id="hero-discover-cta"
             onClick={() => scrollTo('#work')}
-            className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-[11px] font-sans font-semibold tracking-widest uppercase transition-colors
+            className="group inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full text-[10px] sm:text-[11px] font-sans font-semibold tracking-widest uppercase transition-colors
                        bg-white text-charcoal hover:bg-white/90
                        lg:bg-charcoal lg:text-warm-white lg:hover:bg-charcoal-light"
           >
@@ -209,7 +209,7 @@ export default function Hero() {
           <button
             id="hero-contact-cta"
             onClick={() => scrollTo('#contact')}
-            className="inline-flex items-center px-6 py-3.5 rounded-full text-[11px] font-sans font-medium tracking-widest uppercase transition-all backdrop-blur-sm
+            className="inline-flex items-center px-5 py-3 sm:px-6 sm:py-3.5 rounded-full text-[10px] sm:text-[11px] font-sans font-medium tracking-widest uppercase transition-all backdrop-blur-sm
                        border border-white/40 text-white hover:bg-white/10
                        lg:border-charcoal/30 lg:text-charcoal lg:hover:bg-charcoal lg:hover:text-warm-white lg:backdrop-blur-none"
           >
@@ -223,7 +223,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
           onClick={() => scrollTo('#differentiator')}
-          className="flex items-center gap-2 mt-11 text-[10px] font-sans font-light tracking-ultra-wide uppercase
+          className="flex items-center gap-2 mt-6 lg:mt-11 text-[9px] sm:text-[10px] font-sans font-light tracking-ultra-wide uppercase
                      text-white/35 hover:text-white/60 lg:text-charcoal-mid/40 lg:hover:text-charcoal-mid
                      transition-colors w-max"
           aria-label="Scroll down"
