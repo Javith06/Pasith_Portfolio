@@ -7,8 +7,7 @@ const PASITH_PHOTO = '/images/pasith-photo.jpg'
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
-  const mobileVideoRef = useRef<HTMLVideoElement>(null)
-  const desktopVideoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const [muted, setMuted] = useState(true)
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
@@ -19,16 +18,14 @@ export default function Hero() {
   // Automatically mute video audio when scrolling away from Hero section
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     if (latest >= 0.85 && !muted) {
-      if (mobileVideoRef.current) mobileVideoRef.current.muted = true
-      if (desktopVideoRef.current) desktopVideoRef.current.muted = true
+      if (videoRef.current) videoRef.current.muted = true
       setMuted(true)
     }
   })
 
   const toggleMute = () => {
     const nextMuted = !muted
-    if (mobileVideoRef.current) mobileVideoRef.current.muted = nextMuted
-    if (desktopVideoRef.current) desktopVideoRef.current.muted = nextMuted
+    if (videoRef.current) videoRef.current.muted = nextMuted
     setMuted(nextMuted)
   }
 
@@ -45,28 +42,41 @@ export default function Hero() {
     >
 
       {/* ═══════════════════════════════════════════════
-          MOBILE (< lg): Full-bleed background video
+          SHARED HERO BACKGROUND VIDEO (Single video element to prevent echo/double audio)
+          - On mobile (< lg): Full bleed background
+          - On desktop (lg+): Right-hand 46% split column
       ═══════════════════════════════════════════════ */}
-      <div className="absolute inset-0 lg:hidden">
+      <div className="absolute inset-0 lg:left-auto lg:right-0 lg:w-[46%] z-0">
         <motion.div style={{ y: imgY }} className="absolute inset-0">
           <video
-            ref={mobileVideoRef}
+            ref={videoRef}
             src={pasithVideo}
+            poster={PASITH_PHOTO}
             autoPlay
             muted={muted}
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
+            disablePictureInPicture
+            disableRemotePlayback
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: '50% 0%' }}
+            style={{ objectPosition: '50% 0%', transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
           />
-          {/* Cinematic overlays — text readable at bottom */}
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/40 to-charcoal/25" />
-          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-charcoal/50 to-transparent" />
+
+          {/* Overlays */}
+          {/* Mobile dark gradient overlay so text at bottom is readable */}
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/40 to-charcoal/25 lg:hidden" />
+          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-charcoal/50 to-transparent lg:hidden" />
+
+          {/* Desktop white edge fades */}
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-warm-white via-warm-white/20 to-transparent" />
+          <div className="hidden lg:block absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-warm-white/30 to-transparent" />
+          <div className="hidden lg:block absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-warm-white/20 to-transparent" />
         </motion.div>
       </div>
 
-      {/* Mobile sound toggle */}
+      {/* Mute/Unmute Toggle Button */}
+      {/* Mobile button */}
       <button
         onClick={toggleMute}
         className="lg:hidden absolute top-20 right-4 z-20 w-9 h-9 rounded-full bg-black/30 backdrop-blur-md border border-white/20 flex items-center justify-center text-white"
@@ -75,41 +85,17 @@ export default function Hero() {
         {muted ? <VolumeX size={15} /> : <Volume2 size={15} />}
       </button>
 
-      {/* ═══════════════════════════════════════════════
-          DESKTOP (lg+): Split layout video panel
-      ═══════════════════════════════════════════════ */}
-      <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[46%]">
-        <motion.div style={{ y: imgY }} className="absolute inset-0">
-          <video
-            ref={desktopVideoRef}
-            src={pasithVideo}
-            autoPlay
-            muted={muted}
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: '50% 0%' }}
-          />
-          {/* Left fade into white */}
-          <div className="absolute inset-0 bg-gradient-to-r from-warm-white via-warm-white/20 to-transparent" />
-          {/* Top/bottom fades */}
-          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-warm-white/30 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-warm-white/20 to-transparent" />
-        </motion.div>
-
-        {/* Desktop sound toggle */}
-        <button
-          onClick={toggleMute}
-          className="absolute bottom-6 right-6 z-20 px-3.5 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/20 flex items-center gap-2 text-white hover:bg-black/40 transition-colors"
-          aria-label={muted ? 'Unmute video' : 'Mute video'}
-        >
-          {muted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-          <span className="text-[10px] font-sans font-medium tracking-widest uppercase">
-            {muted ? 'UNMUTE' : 'MUTED'}
-          </span>
-        </button>
-      </div>
+      {/* Desktop button */}
+      <button
+        onClick={toggleMute}
+        className="hidden lg:flex absolute bottom-6 right-6 z-20 px-3.5 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/20 items-center gap-2 text-white hover:bg-black/40 transition-colors"
+        aria-label={muted ? 'Unmute video' : 'Mute video'}
+      >
+        {muted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+        <span className="text-[10px] font-sans font-medium tracking-widest uppercase">
+          {muted ? 'UNMUTE' : 'MUTED'}
+        </span>
+      </button>
 
       {/* ═══════════════════════════════════════════════
           TEXT — bottom overlay on mobile, left column on desktop
