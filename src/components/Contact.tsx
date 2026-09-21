@@ -124,6 +124,31 @@ export default function Contact() {
                   <p className="font-sans text-sm font-medium text-charcoal">{profile.address}</p>
                 </div>
               </div>
+
+              <a
+                href={profile.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                id="contact-instagram"
+                className="flex items-center gap-4 group hover-lift bg-warm-white border border-silver/30 rounded-xl p-5"
+              >
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs font-sans font-semibold tracking-widest uppercase text-charcoal-mid">
+                    INSTAGRAM
+                  </p>
+                  <p className="font-sans text-sm font-medium text-charcoal group-hover:text-charcoal-mid transition-colors">
+                    @pasith_dentures
+                  </p>
+                </div>
+                <ChevronRight size={16} className="ml-auto text-charcoal-mid group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
 
             {/* Opening hours */}

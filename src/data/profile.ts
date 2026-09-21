@@ -25,8 +25,8 @@ export const profile = {
     { day: 'Sunday', time: 'Closed' },
   ],
   social: {
-    linkedin: '[LinkedIn URL]',
-    instagram: '[Instagram URL]',
+    linkedin: '',
+    instagram: 'https://www.instagram.com/pasith_dentures',
   },
   photo: '/images/pasith-photo.jpg',
 }
