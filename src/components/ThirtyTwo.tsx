@@ -184,19 +184,19 @@ export default function ThirtyTwo() {
         </span>
       </div>
 
-      {/* Floating 3D aesthetic mouth art */}
+      {/* Floating 3D aesthetic mouth art (Visible on mobile & desktop) */}
       <motion.div
-        initial={{ opacity: 0, x: 80 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 1.2, delay: 0.5, ease: [0.19, 1, 0.22, 1] }}
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-72 md:w-96 lg:w-[30rem] pointer-events-none hidden lg:block z-10"
+        initial={{ opacity: 0, scale: 0.9, y: 30 }}
+        animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+        transition={{ duration: 1, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
+        className="mb-12 lg:mb-0 lg:absolute lg:right-4 lg:top-1/2 lg:-translate-y-1/2 w-full max-w-sm md:max-w-md lg:w-[28rem] xl:w-[32rem] z-10 mx-auto"
         aria-hidden="true"
       >
         <motion.div
-          animate={{ y: [0, -18, 0], rotate: [-2, 2, -2] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/40 backdrop-blur-sm"
-          style={{ filter: 'drop-shadow(0 25px 50px rgba(44,42,40,0.18))' }}
+          animate={{ y: [0, -14, 0], rotate: [-1.5, 1.5, -1.5] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+          className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/60 backdrop-blur-md bg-warm-white/40"
+          style={{ filter: 'drop-shadow(0 20px 40px rgba(44,42,40,0.15))' }}
         >
           <img
             src="/images/aesthetic_teeth_3d.png"
@@ -204,6 +204,10 @@ export default function ThirtyTwo() {
             className="w-full h-auto object-cover rounded-3xl transform scale-105 hover:scale-110 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-white/10 pointer-events-none" />
+          <div className="absolute bottom-4 left-5 right-5 glass-card px-4 py-2.5 flex items-center justify-between">
+            <span className="text-[10px] font-sans font-semibold tracking-widest uppercase text-charcoal">3D CRAFTSMANSHIP</span>
+            <span className="text-[9px] font-sans font-light text-charcoal-mid uppercase">BESPOKE ANATOMY</span>
+          </div>
         </motion.div>
       </motion.div>
 

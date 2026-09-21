@@ -75,26 +75,23 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Mute/Unmute Toggle Button */}
+      {/* Minimal Icon-Only Mute/Unmute Toggle Button inside Hero page */}
       {/* Mobile button */}
       <button
         onClick={toggleMute}
-        className="lg:hidden absolute top-20 right-4 z-20 w-9 h-9 rounded-full bg-black/30 backdrop-blur-md border border-white/20 flex items-center justify-center text-white"
-        aria-label={muted ? 'Unmute video' : 'Mute video'}
+        className="lg:hidden absolute top-20 right-4 z-20 w-9 h-9 rounded-full bg-black/40 text-white backdrop-blur-md border border-white/20 flex items-center justify-center shadow-md transition-transform active:scale-95"
+        aria-label={muted ? 'Turn sound on' : 'Turn sound off'}
       >
-        {muted ? <VolumeX size={15} /> : <Volume2 size={15} />}
+        {muted ? <VolumeX size={15} /> : <Volume2 size={15} className="text-amber-300 animate-pulse" />}
       </button>
 
       {/* Desktop button */}
       <button
         onClick={toggleMute}
-        className="hidden lg:flex absolute bottom-6 right-6 z-20 px-3.5 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/20 items-center gap-2 text-white hover:bg-black/40 transition-colors"
-        aria-label={muted ? 'Unmute video' : 'Mute video'}
+        className="hidden lg:flex absolute top-24 right-8 z-20 w-11 h-11 rounded-full bg-black/40 text-white backdrop-blur-md border border-white/20 items-center justify-center shadow-lg hover:bg-black/60 transition-all active:scale-95 cursor-pointer"
+        aria-label={muted ? 'Turn sound on' : 'Turn sound off'}
       >
-        {muted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-        <span className="text-[10px] font-sans font-medium tracking-widest uppercase">
-          {muted ? 'UNMUTE' : 'MUTED'}
-        </span>
+        {muted ? <VolumeX size={17} className="text-white/80" /> : <Volume2 size={17} className="text-amber-300 animate-pulse" />}
       </button>
 
       {/* ═══════════════════════════════════════════════
