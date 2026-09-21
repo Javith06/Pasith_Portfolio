@@ -17,7 +17,8 @@ export default function CoreDifferentiator() {
     <section
       id="differentiator"
       ref={ref}
-      className="bg-charcoal text-warm-white py-24 md:py-36 overflow-hidden"
+      className="py-24 md:py-36 overflow-hidden transition-colors duration-500"
+      style={{ backgroundColor: 'var(--bg-dark)', color: 'var(--color-text-on-dark)' }}
       aria-label="Core differentiator"
     >
       <div className="container-px">

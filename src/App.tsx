@@ -17,7 +17,7 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 
 function App() {
   return (
-    <div className="min-h-screen bg-warm-white text-charcoal">
+    <div className="min-h-screen transition-colors duration-500" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-main)' }}>
       <Navigation />
       <main>
         <Hero />

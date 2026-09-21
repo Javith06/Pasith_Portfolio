@@ -53,10 +53,10 @@ export default function Navigation() {
             className="flex flex-col items-start leading-none group"
             aria-label="Pasith – go to top"
           >
-            <span className="text-sm font-sans font-semibold tracking-widest text-charcoal uppercase transition-opacity group-hover:opacity-70">
+            <span className="text-sm font-sans font-semibold tracking-widest uppercase transition-opacity group-hover:opacity-70" style={{ color: 'var(--text-main)' }}>
               PASITH
             </span>
-            <span className="text-[10px] font-sans font-light tracking-ultra-wide text-charcoal-mid uppercase">
+            <span className="text-[10px] font-sans font-light tracking-ultra-wide uppercase" style={{ color: 'var(--text-muted)' }}>
               DENTURES&nbsp;•&nbsp;CDT
             </span>
           </button>
@@ -67,7 +67,10 @@ export default function Navigation() {
               <li key={link.label}>
                 <button
                   onClick={() => handleNav(link.href)}
-                  className="text-xs font-sans font-medium tracking-widest uppercase text-charcoal-mid hover:text-charcoal transition-colors duration-200"
+                  className="text-xs font-sans font-medium tracking-widest uppercase transition-colors duration-200"
+                  style={{ color: 'var(--text-muted)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-main)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
                 >
                   {link.label}
                 </button>
@@ -80,7 +83,8 @@ export default function Navigation() {
             <a
               href="#contact"
               onClick={(e: React.MouseEvent) => { e.preventDefault(); handleNav('#contact') }}
-              className="hidden md:inline-flex items-center px-5 py-2 text-xs font-sans font-medium tracking-widest uppercase bg-charcoal text-warm-white rounded-full hover:bg-charcoal-light transition-colors duration-200"
+              className="hidden md:inline-flex items-center px-5 py-2 text-xs font-sans font-medium tracking-widest uppercase rounded-full shadow-md transition-all active:scale-95"
+              style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
             >
               Get in Touch
             </a>
@@ -91,8 +95,8 @@ export default function Navigation() {
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             >
               {menuOpen
-                ? <X size={22} className="text-charcoal" />
-                : <Menu size={22} className="text-charcoal" />
+                ? <X size={22} style={{ color: 'var(--text-main)' }} />
+                : <Menu size={22} style={{ color: 'var(--text-main)' }} />
               }
             </button>
           </div>

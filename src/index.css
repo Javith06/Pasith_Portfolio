@@ -8,77 +8,112 @@
 
 /* 1. PRIMARY MINIMALIST (Default Warm Cream & Charcoal) */
 :root, [data-theme="primary"] {
-  --bg-warm-white: #F7F6F4;
-  --bg-warm-offwhite: #EFEDE9;
-  --color-silver: #C8C4BE;
-  --color-charcoal: #2C2A28;
-  --color-charcoal-light: #3E3C39;
-  --color-charcoal-mid: #7A7570;
-  --color-stone: #9E9890;
+  --bg-primary: #F7F6F4;
+  --bg-secondary: #EFEDE9;
+  --bg-dark: #2C2A28;
+  --bg-dark-card: #3E3C39;
+  --text-main: #2C2A28;
+  --text-muted: #7A7570;
+  --text-on-dark: #F7F6F4;
+  --text-on-dark-muted: #C8C4BE;
+  --accent: #2C2A28;
+  --accent-hover: #3E3C39;
+  --accent-text: #F7F6F4;
+  --border-color: rgba(200, 196, 190, 0.45);
+  --glass-bg: rgba(247, 246, 244, 0.85);
+  --glass-border: rgba(200, 196, 190, 0.45);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --card-glass-bg: rgba(247, 246, 244, 0.82);
-  --card-glass-border: rgba(200, 196, 190, 0.45);
+  --hero-fade-desktop: linear-gradient(to right, #F7F6F4 0%, #F7F6F4 45%, rgba(247, 246, 244, 0.3) 75%, transparent 100%);
+  --hero-overlay-mobile: linear-gradient(to top, rgba(44, 42, 40, 0.95), rgba(44, 42, 40, 0.4), rgba(44, 42, 40, 0.25));
 }
 
-/* 2. AESTHETICS LAB (Soft Dust Teal, Blue-Grey & Clean White) */
+/* 2. AESTHETICS LAB (Inspired by Image 2 - Soft Clinical Cyan/Grey & Jost Font) */
 [data-theme="aesthetics"] {
-  --bg-warm-white: #EFF5F6;
-  --bg-warm-offwhite: #E1EBEB;
-  --color-silver: #B8CBCF;
-  --color-charcoal: #1A262B;
-  --color-charcoal-light: #2A3B42;
-  --color-charcoal-mid: #526C75;
-  --color-stone: #7899A3;
+  --bg-primary: #EAF2F3;
+  --bg-secondary: #DBE7E8;
+  --bg-dark: #1C282C;
+  --bg-dark-card: #27373C;
+  --text-main: #142327;
+  --text-muted: #4F6B72;
+  --text-on-dark: #F0F7F8;
+  --text-on-dark-muted: #9EBFC5;
+  --accent: #337A84;
+  --accent-hover: #29646D;
+  --accent-text: #FFFFFF;
+  --border-color: rgba(158, 191, 197, 0.45);
+  --glass-bg: rgba(234, 242, 243, 0.88);
+  --glass-border: rgba(158, 191, 197, 0.5);
   --font-serif: 'Jost', 'Inter', sans-serif;
   --font-sans: 'Jost', sans-serif;
-  --card-glass-bg: rgba(239, 245, 246, 0.85);
-  --card-glass-border: rgba(184, 203, 207, 0.5);
+  --hero-fade-desktop: linear-gradient(to right, #EAF2F3 0%, #EAF2F3 45%, rgba(234, 242, 243, 0.3) 75%, transparent 100%);
+  --hero-overlay-mobile: linear-gradient(to top, rgba(28, 40, 44, 0.95), rgba(28, 40, 44, 0.4), rgba(28, 40, 44, 0.25));
 }
 
-/* 3. FUTURISTIC GLASS (Deep Emerald, Cyber Teal & Glass Metallic) */
+/* 3. FUTURISTIC GLASS (Inspired by Image 3 - Deep Cyber Emerald Glass Dark Mode) */
 [data-theme="web3-glass"] {
-  --bg-warm-white: #172428;
-  --bg-warm-offwhite: #1E3036;
-  --color-silver: #4B6E75;
-  --color-charcoal: #EBF5F5;
-  --color-charcoal-light: #C2E0E0;
-  --color-charcoal-mid: #89B5BC;
-  --color-stone: #5F8F96;
+  --bg-primary: #0D1B1E;
+  --bg-secondary: #142428;
+  --bg-dark: #070E10;
+  --bg-dark-card: #182F34;
+  --text-main: #ECF6F6;
+  --text-muted: #89B1B8;
+  --text-on-dark: #ECF6F6;
+  --text-on-dark-muted: #638D94;
+  --accent: #389BAC;
+  --accent-hover: #4BB3C5;
+  --accent-text: #0D1B1E;
+  --border-color: rgba(137, 177, 184, 0.25);
+  --glass-bg: rgba(20, 36, 40, 0.75);
+  --glass-border: rgba(137, 177, 184, 0.3);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --card-glass-bg: rgba(30, 48, 54, 0.65);
-  --card-glass-border: rgba(137, 181, 188, 0.25);
+  --hero-fade-desktop: linear-gradient(to right, #0D1B1E 0%, #0D1B1E 45%, rgba(13, 27, 30, 0.4) 75%, transparent 100%);
+  --hero-overlay-mobile: linear-gradient(to top, rgba(13, 27, 30, 0.98), rgba(13, 27, 30, 0.6), rgba(13, 27, 30, 0.3));
 }
 
-/* 4. WARM TERRACOTTA (Rich Burnt Amber, Warm Clay & Copper Accent) */
+/* 4. WARM TERRACOTTA (Inspired by Image 4 - Rich Copper & Burnt Clay) */
 [data-theme="terracotta"] {
-  --bg-warm-white: #FAF4F0;
-  --bg-warm-offwhite: #F3E7DF;
-  --color-silver: #DDBDA8;
-  --color-charcoal: #3D1C11;
-  --color-charcoal-light: #59291B;
-  --color-charcoal-mid: #8C5243;
-  --color-stone: #B07C6E;
+  --bg-primary: #FAF0EA;
+  --bg-secondary: #F4E3D7;
+  --bg-dark: #7F2D11;
+  --bg-dark-card: #983816;
+  --text-main: #3D150A;
+  --text-muted: #8C4C3A;
+  --text-on-dark: #FAF0EA;
+  --text-on-dark-muted: #E8BAAC;
+  --accent: #BF4E22;
+  --accent-hover: #A33F17;
+  --accent-text: #FAF0EA;
+  --border-color: rgba(232, 186, 172, 0.45);
+  --glass-bg: rgba(250, 240, 234, 0.88);
+  --glass-border: rgba(232, 186, 172, 0.5);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --card-glass-bg: rgba(250, 244, 240, 0.85);
-  --card-glass-border: rgba(221, 189, 168, 0.45);
+  --hero-fade-desktop: linear-gradient(to right, #FAF0EA 0%, #FAF0EA 45%, rgba(250, 240, 234, 0.3) 75%, transparent 100%);
+  --hero-overlay-mobile: linear-gradient(to top, rgba(61, 21, 10, 0.95), rgba(61, 21, 10, 0.4), rgba(61, 21, 10, 0.25));
 }
 
-/* 5. LONDON EDITORIAL (High-Fashion Soft Nude, Taupe & Luxe Serif) */
+/* 5. LONDON EDITORIAL (Inspired by Image 5 - Cashmere Nude & Espresso) */
 [data-theme="london-editorial"] {
-  --bg-warm-white: #F5F1EC;
-  --bg-warm-offwhite: #EAE3DA;
-  --color-silver: #C7BBAE;
-  --color-charcoal: #2B2520;
-  --color-charcoal-light: #423A33;
-  --color-charcoal-mid: #786D62;
-  --color-stone: #9C8F82;
+  --bg-primary: #F6F2EC;
+  --bg-secondary: #EAE2D7;
+  --bg-dark: #28221D;
+  --bg-dark-card: #3B332C;
+  --text-main: #241E1A;
+  --text-muted: #75695D;
+  --text-on-dark: #F6F2EC;
+  --text-on-dark-muted: #C4B7A9;
+  --accent: #857262;
+  --accent-hover: #6E5E50;
+  --accent-text: #F6F2EC;
+  --border-color: rgba(196, 183, 169, 0.45);
+  --glass-bg: rgba(246, 242, 236, 0.88);
+  --glass-border: rgba(196, 183, 169, 0.45);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --card-glass-bg: rgba(245, 241, 236, 0.85);
-  --card-glass-border: rgba(199, 187, 174, 0.45);
+  --hero-fade-desktop: linear-gradient(to right, #F6F2EC 0%, #F6F2EC 45%, rgba(246, 242, 236, 0.3) 75%, transparent 100%);
+  --hero-overlay-mobile: linear-gradient(to top, rgba(40, 34, 29, 0.95), rgba(40, 34, 29, 0.4), rgba(40, 34, 29, 0.25));
 }
 
 /* ===========================
@@ -95,8 +130,8 @@ html {
 }
 
 body {
-  background-color: var(--bg-warm-white);
-  color: var(--color-charcoal);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
   font-family: var(--font-sans);
   overflow-x: hidden;
   transition: background-color 0.4s ease, color 0.4s ease;
@@ -116,22 +151,22 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-warm-offwhite);
+  background: var(--bg-secondary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-silver);
+  background: var(--text-on-dark-muted);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-charcoal-mid);
+  background: var(--text-muted);
 }
 
 /* ===========================
    SELECTION
    =========================== */
 ::selection {
-  background: var(--color-charcoal);
-  color: var(--bg-warm-white);
+  background: var(--accent);
+  color: var(--accent-text);
 }
 
 /* ===========================
@@ -149,10 +184,10 @@ body {
    GLASS CARD — DYNAMIC THEME
    =========================== */
 .glass-card {
-  background: var(--card-glass-bg);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--card-glass-border);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.08),
@@ -163,10 +198,10 @@ body {
    NAV FROSTED
    =========================== */
 .nav-frosted {
-  background: var(--card-glass-bg);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--card-glass-border);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 /* ===========================
@@ -184,7 +219,7 @@ body {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--color-charcoal);
+  background: var(--accent);
   cursor: ew-resize;
   display: flex;
   align-items: center;
@@ -196,8 +231,8 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--color-charcoal);
-  color: var(--bg-warm-white);
+  background: var(--accent);
+  color: var(--accent-text);
   display: flex;
   align-items: center;
   justify-content: center;

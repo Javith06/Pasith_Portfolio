@@ -36,8 +36,8 @@ export default function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative overflow-hidden"
-      style={{ minHeight: '100svh' }}
+      className="relative overflow-hidden transition-colors duration-500"
+      style={{ minHeight: '100svh', backgroundColor: 'var(--bg-primary)', color: 'var(--text-main)' }}
       aria-label="Hero"
     >
 
@@ -63,15 +63,15 @@ export default function Hero() {
             style={{ objectPosition: '50% 0%', transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
           />
 
-          {/* Overlays */}
-          {/* Mobile dark gradient overlay so text at bottom is readable */}
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/40 to-charcoal/25 lg:hidden" />
-          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-charcoal/50 to-transparent lg:hidden" />
+          {/* Overlays (dynamic per active theme) */}
+          {/* Mobile dark gradient overlay */}
+          <div className="absolute inset-0 lg:hidden" style={{ background: 'var(--hero-overlay-mobile)' }} />
+          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/50 to-transparent lg:hidden" />
 
-          {/* Desktop white edge fades */}
-          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-warm-white via-warm-white/20 to-transparent" />
-          <div className="hidden lg:block absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-warm-white/30 to-transparent" />
-          <div className="hidden lg:block absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-warm-white/20 to-transparent" />
+          {/* Desktop theme edge fades */}
+          <div className="hidden lg:block absolute inset-0 transition-all duration-500" style={{ background: 'var(--hero-fade-desktop)' }} />
+          <div className="hidden lg:block absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/10 to-transparent" />
+          <div className="hidden lg:block absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/10 to-transparent" />
         </motion.div>
       </div>
 
@@ -79,7 +79,8 @@ export default function Hero() {
       {/* Mobile button */}
       <button
         onClick={toggleMute}
-        className="lg:hidden absolute top-20 right-4 z-20 w-9 h-9 rounded-full bg-black/40 text-white backdrop-blur-md border border-white/20 flex items-center justify-center shadow-md transition-transform active:scale-95"
+        className="lg:hidden absolute top-20 right-4 z-20 w-9 h-9 rounded-full backdrop-blur-md border flex items-center justify-center shadow-md transition-transform active:scale-95"
+        style={{ backgroundColor: 'var(--bg-dark)', borderColor: 'var(--border-color)', color: 'var(--text-on-dark)' }}
         aria-label={muted ? 'Turn sound on' : 'Turn sound off'}
       >
         {muted ? <VolumeX size={15} /> : <Volume2 size={15} className="text-amber-300 animate-pulse" />}
@@ -88,10 +89,11 @@ export default function Hero() {
       {/* Desktop button */}
       <button
         onClick={toggleMute}
-        className="hidden lg:flex absolute top-24 right-8 z-20 w-11 h-11 rounded-full bg-black/40 text-white backdrop-blur-md border border-white/20 items-center justify-center shadow-lg hover:bg-black/60 transition-all active:scale-95 cursor-pointer"
+        className="hidden lg:flex absolute top-24 right-8 z-20 w-11 h-11 rounded-full backdrop-blur-md border items-center justify-center shadow-lg transition-all active:scale-95 cursor-pointer"
+        style={{ backgroundColor: 'var(--bg-dark)', borderColor: 'var(--border-color)', color: 'var(--text-on-dark)' }}
         aria-label={muted ? 'Turn sound on' : 'Turn sound off'}
       >
-        {muted ? <VolumeX size={17} className="text-white/80" /> : <Volume2 size={17} className="text-amber-300 animate-pulse" />}
+        {muted ? <VolumeX size={17} /> : <Volume2 size={17} className="text-amber-300 animate-pulse" />}
       </button>
 
       {/* ═══════════════════════════════════════════════
@@ -115,8 +117,8 @@ export default function Hero() {
           transition={{ duration: 0.65, ease: [0.19, 1, 0.22, 1] }}
           className="flex items-center gap-3 mb-3 lg:mb-7"
         >
-          <div className="w-5 h-px bg-white/50 lg:bg-charcoal/35" />
-          <p className="text-[9px] sm:text-[10px] font-sans font-light tracking-ultra-wide uppercase text-white/70 lg:text-charcoal-mid">
+          <div className="w-5 h-px bg-white/50 lg:bg-[var(--text-muted)]" />
+          <p className="text-[9px] sm:text-[10px] font-sans font-light tracking-ultra-wide uppercase text-white/70 lg:text-[var(--text-muted)]">
             CLINICAL DENTAL TECHNICIAN · UK
           </p>
         </motion.div>
@@ -126,12 +128,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
-          className="font-serif font-light leading-[1.04] mb-3 lg:mb-6
-                     text-white lg:text-charcoal"
+          className="font-serif font-light leading-[1.04] mb-3 lg:mb-6 text-white lg:text-[var(--text-main)]"
           style={{ fontSize: 'clamp(2.1rem, 5.5vw, 5.5rem)' }}
         >
           Making dentures<br />
-          <span className="text-white/70 lg:text-charcoal/55">that change lives.</span>
+          <span className="text-white/70 lg:text-[var(--text-muted)]">that change lives.</span>
         </motion.h1>
 
         {/* Divider */}
@@ -139,7 +140,7 @@ export default function Hero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.7, delay: 0.28 }}
-          className="origin-left w-8 h-px bg-white/40 lg:bg-charcoal/25 mb-3 lg:mb-5"
+          className="origin-left w-8 h-px bg-white/40 lg:bg-[var(--border-color)] mb-3 lg:mb-5"
         />
 
         {/* Sub */}
@@ -147,7 +148,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.3 }}
-          className="font-sans text-xs sm:text-sm md:text-base font-light text-white/75 lg:text-charcoal-mid leading-relaxed mb-6 lg:mb-8 max-w-sm lg:max-w-md"
+          className="font-sans text-xs sm:text-sm md:text-base font-light text-white/75 lg:text-[var(--text-muted)] leading-relaxed mb-6 lg:mb-8 max-w-sm lg:max-w-md"
         >
           Dentures made and fitted by the same technician — precision,
           care and a personal approach from start to finish.
@@ -166,8 +167,8 @@ export default function Hero() {
             { top: 'PERSONAL',          bot: 'Individual to every patient' },
           ].map(c => (
             <div key={c.top} className="glass-card px-4 py-3">
-              <p className="text-[10px] font-sans font-semibold tracking-widest uppercase text-charcoal">{c.top}</p>
-              <p className="text-[10px] font-sans font-light text-charcoal-mid mt-0.5">{c.bot}</p>
+              <p className="text-[10px] font-sans font-semibold tracking-widest uppercase text-[var(--text-main)]">{c.top}</p>
+              <p className="text-[10px] font-sans font-light text-[var(--text-muted)] mt-0.5">{c.bot}</p>
             </div>
           ))}
         </motion.div>
@@ -182,9 +183,8 @@ export default function Hero() {
           <button
             id="hero-discover-cta"
             onClick={() => scrollTo('#work')}
-            className="group inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full text-[10px] sm:text-[11px] font-sans font-semibold tracking-widest uppercase transition-colors
-                       bg-white text-charcoal hover:bg-white/90
-                       lg:bg-charcoal lg:text-warm-white lg:hover:bg-charcoal-light"
+            className="group inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full text-[10px] sm:text-[11px] font-sans font-semibold tracking-widest uppercase transition-all shadow-md active:scale-95"
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
           >
             DISCOVER MY WORK
             <ChevronRight size={12} className="transition-transform group-hover:translate-x-0.5" />
@@ -194,7 +194,7 @@ export default function Hero() {
             onClick={() => scrollTo('#contact')}
             className="inline-flex items-center px-5 py-3 sm:px-6 sm:py-3.5 rounded-full text-[10px] sm:text-[11px] font-sans font-medium tracking-widest uppercase transition-all backdrop-blur-sm
                        border border-white/40 text-white hover:bg-white/10
-                       lg:border-charcoal/30 lg:text-charcoal lg:hover:bg-charcoal lg:hover:text-warm-white lg:backdrop-blur-none"
+                       lg:border-[var(--border-color)] lg:text-[var(--text-main)] lg:hover:bg-[var(--bg-secondary)] lg:backdrop-blur-none"
           >
             GET IN TOUCH
           </button>
@@ -207,7 +207,7 @@ export default function Hero() {
           transition={{ delay: 1.2 }}
           onClick={() => scrollTo('#differentiator')}
           className="flex items-center gap-2 mt-6 lg:mt-11 text-[9px] sm:text-[10px] font-sans font-light tracking-ultra-wide uppercase
-                     text-white/35 hover:text-white/60 lg:text-charcoal-mid/40 lg:hover:text-charcoal-mid
+                     text-white/35 hover:text-white/60 lg:text-[var(--text-muted)] lg:hover:text-[var(--text-main)]
                      transition-colors w-max"
           aria-label="Scroll down"
         >
@@ -219,16 +219,23 @@ export default function Hero() {
       </motion.div>
 
       {/* ── Marquee ── */}
-      <div className="absolute bottom-0 inset-x-0 z-20 border-t border-white/10 lg:border-silver/30 py-3.5 overflow-hidden
-                      bg-black/40 backdrop-blur-sm lg:bg-warm-white/80 lg:backdrop-blur-sm">
+      <div
+        className="absolute bottom-0 inset-x-0 z-20 border-t py-3.5 overflow-hidden backdrop-blur-sm transition-colors duration-500"
+        style={{ backgroundColor: 'var(--bg-dark)', borderColor: 'var(--border-color)' }}
+      >
         <div className="marquee-track">
           {Array(4).fill(null).map((_, i) => (
             <div key={i} className="flex items-center gap-10 px-6 whitespace-nowrap">
               {['MADE BY ME', 'FITTED BY ME', 'PERSONAL', 'PRECISION CRAFTSMANSHIP', 'CDT', '32 TEETH', 'DENTURES'].map((w, j) => (
-                <span key={j} className="text-[10px] font-sans font-light tracking-ultra-wide uppercase
-                                        text-white/30 lg:text-charcoal-mid/45">{w}</span>
+                <span
+                  key={j}
+                  className="text-[10px] font-sans font-light tracking-ultra-wide uppercase"
+                  style={{ color: 'var(--text-on-dark-muted)' }}
+                >
+                  {w}
+                </span>
               ))}
-              <span className="text-white/15 lg:text-charcoal-mid/20 mx-1">·</span>
+              <span className="opacity-30 mx-1" style={{ color: 'var(--text-on-dark-muted)' }}>·</span>
             </div>
           ))}
         </div>
