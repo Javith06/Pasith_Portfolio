@@ -60,7 +60,7 @@ export default function Hero() {
             disablePictureInPicture
             disableRemotePlayback
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: '50% 0%', transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
+            style={{ objectPosition: '50% 0%', transform: 'translateZ(0)', backfaceVisibility: 'hidden', filter: 'none' }}
           />
 
           {/* Overlays (dynamic per active theme) */}

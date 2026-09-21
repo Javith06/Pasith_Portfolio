@@ -56,7 +56,10 @@ export default function Navigation() {
             <span className="text-sm font-sans font-semibold tracking-widest uppercase transition-opacity group-hover:opacity-70" style={{ color: 'var(--text-main)' }}>
               PASITH
             </span>
-            <span className="text-[10px] font-sans font-light tracking-ultra-wide uppercase" style={{ color: 'var(--text-muted)' }}>
+            <span
+              className="text-[10px] font-sans font-light tracking-ultra-wide uppercase transition-colors"
+              style={{ color: scrolled ? 'var(--text-muted)' : 'var(--text-main)', opacity: 0.8 }}
+            >
               DENTURES&nbsp;•&nbsp;CDT
             </span>
           </button>
