@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { profile } from '../data/profile'
-import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react'
+import { Phone, Mail, MapPin, ChevronRight, MessageCircle } from 'lucide-react'
 
 type FormData = {
   name: string
@@ -114,13 +114,34 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs font-sans font-semibold tracking-widest uppercase text-charcoal-mid">
-                    CALL
+                    CALL / MOBILE
                   </p>
                   <p className="font-sans text-sm font-medium text-charcoal group-hover:text-charcoal-mid transition-colors">
                     {profile.phone}
                   </p>
                 </div>
                 <ChevronRight size={16} className="ml-auto text-charcoal-mid group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              <a
+                href={profile.social.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                id="contact-whatsapp"
+                className="flex items-center gap-4 group hover-lift bg-emerald-50 border border-emerald-200 rounded-xl p-5"
+              >
+                <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center flex-shrink-0">
+                  <MessageCircle size={16} className="text-white" />
+                </div>
+                <div>
+                  <p className="text-xs font-sans font-semibold tracking-widest uppercase text-emerald-700">
+                    WHATSAPP
+                  </p>
+                  <p className="font-sans text-sm font-medium text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                    Chat on WhatsApp ({profile.phone})
+                  </p>
+                </div>
+                <ChevronRight size={16} className="ml-auto text-emerald-700 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a

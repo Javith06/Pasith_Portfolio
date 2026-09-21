@@ -1,5 +1,5 @@
 import { profile } from '../data/profile'
-import { Linkedin, Instagram } from 'lucide-react'
+import { Linkedin, Instagram, MessageCircle } from 'lucide-react'
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -67,6 +67,9 @@ export default function Footer() {
               </a>
               <a href={`tel:${profile.phone}`} className="block text-sm font-sans font-light text-silver hover:text-warm-white transition-colors">
                 {profile.phone}
+              </a>
+              <a href={profile.social.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-sans font-light text-emerald-400 hover:text-emerald-300 transition-colors">
+                <MessageCircle size={14} /> Chat on WhatsApp
               </a>
               <p className="text-sm font-sans font-light text-silver leading-relaxed">
                 {profile.address}

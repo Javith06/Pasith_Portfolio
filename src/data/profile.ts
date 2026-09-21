@@ -17,7 +17,7 @@ export const profile = {
   Describe your background, why you became a CDT, your passion for dentures, 
   and your commitment to patient care. This will replace this placeholder.]`,
   email: 'paith24@gmail.com',
-  phone: '[+44 XXXX XXXXXX]',
+  phone: '+44 7405 989802',
   address: '[Practice Address, City, Postcode]',
   hours: [
     { day: 'Monday – Friday', time: '[Hours]' },
@@ -27,6 +27,7 @@ export const profile = {
   social: {
     linkedin: '',
     instagram: 'https://www.instagram.com/pasith_dentures',
+    whatsapp: 'https://wa.me/447405989802',
   },
   photo: '/images/pasith-photo.jpg',
 }
