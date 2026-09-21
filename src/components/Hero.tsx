@@ -106,11 +106,11 @@ export default function Hero() {
         style={{ y: textY, opacity: fadeOp, minHeight: '100svh' }}
         className={`
           relative z-10 flex flex-col
-          /* mobile: justify end, positioned lower down with tighter padding */
-          justify-end px-5 sm:px-8 pb-14 pt-28
-          /* desktop: left side, centered vertically */
+          /* mobile & tablet portrait: justify end, max-w container, responsive padding */
+          justify-end px-5 sm:px-8 md:px-10 pb-14 sm:pb-16 md:pb-20 pt-28 sm:pt-32 md:pt-36 md:max-w-2xl
+          /* desktop & tablet landscape: left column split, centered vertically */
           lg:justify-center
-          lg:w-[54%] lg:px-16 xl:px-24 lg:pt-32 lg:pb-16
+          lg:w-[54%] lg:max-w-none lg:px-12 xl:px-20 lg:pt-32 lg:pb-16
         `}
       >
         {/* Eyebrow */}
