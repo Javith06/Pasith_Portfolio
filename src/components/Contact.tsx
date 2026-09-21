@@ -28,15 +28,44 @@ export default function Contact() {
     name: '', email: '', phone: '', service: '', message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Connect to backend or form service (e.g. Formspree, Netlify Forms)
-    setSubmitted(true)
+    setLoading(true)
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/paith24@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service || 'General enquiry',
+          message: form.message,
+          _subject: `New Denture Enquiry from ${form.name}`
+        })
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        // Fallback to mailto link if API fails
+        window.location.href = `mailto:paith24@gmail.com?subject=New Denture Enquiry&body=Name: ${encodeURIComponent(form.name)}%0D%0AEmail: ${encodeURIComponent(form.email)}%0D%0APhone: ${encodeURIComponent(form.phone)}%0D%0AService: ${encodeURIComponent(form.service)}%0D%0AMessage: ${encodeURIComponent(form.message)}`
+        setSubmitted(true)
+      }
+    } catch {
+      window.location.href = `mailto:paith24@gmail.com?subject=New Denture Enquiry&body=Name: ${encodeURIComponent(form.name)}%0D%0AEmail: ${encodeURIComponent(form.email)}%0D%0APhone: ${encodeURIComponent(form.phone)}%0D%0AService: ${encodeURIComponent(form.service)}%0D%0AMessage: ${encodeURIComponent(form.message)}`
+      setSubmitted(true)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -281,9 +310,10 @@ export default function Contact() {
                   <button
                     id="form-submit"
                     type="submit"
-                    className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-charcoal text-warm-white text-xs font-sans font-medium tracking-widest uppercase rounded-full hover:bg-charcoal-light transition-colors duration-200"
+                    disabled={loading}
+                    className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-charcoal text-warm-white text-xs font-sans font-medium tracking-widest uppercase rounded-full hover:bg-charcoal-light transition-colors duration-200 disabled:opacity-50 cursor-pointer"
                   >
-                    SEND ENQUIRY
+                    {loading ? 'SENDING...' : 'SEND ENQUIRY'}
                     <ChevronRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                   </button>
 

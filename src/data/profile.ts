@@ -16,7 +16,7 @@ export const profile = {
   bio: `[Professional biography — write in first person, warm and personal tone. 
   Describe your background, why you became a CDT, your passion for dentures, 
   and your commitment to patient care. This will replace this placeholder.]`,
-  email: '[your@email.com]',
+  email: 'paith24@gmail.com',
   phone: '[+44 XXXX XXXXXX]',
   address: '[Practice Address, City, Postcode]',
   hours: [
