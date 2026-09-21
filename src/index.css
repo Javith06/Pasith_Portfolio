@@ -24,7 +24,7 @@
   --glass-border: rgba(200, 196, 190, 0.45);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --hero-fade-desktop: linear-gradient(to right, #F7F6F4 0%, rgba(247, 246, 244, 0.95) 20%, rgba(247, 246, 244, 0.5) 42%, rgba(247, 246, 244, 0.08) 65%, transparent 100%);
+  --hero-fade-desktop: linear-gradient(to right, #F7F6F4 0%, rgba(247, 246, 244, 0.6) 8%, rgba(247, 246, 244, 0.12) 20%, transparent 32%);
   --hero-overlay-mobile: linear-gradient(to top, rgba(44, 42, 40, 0.95), rgba(44, 42, 40, 0.4), rgba(44, 42, 40, 0.25));
 }
 
@@ -46,7 +46,7 @@
   --glass-border: rgba(158, 191, 197, 0.5);
   --font-serif: 'Jost', 'Inter', sans-serif;
   --font-sans: 'Jost', sans-serif;
-  --hero-fade-desktop: linear-gradient(to right, #EAF2F3 0%, rgba(234, 242, 243, 0.95) 20%, rgba(234, 242, 243, 0.5) 42%, rgba(234, 242, 243, 0.08) 65%, transparent 100%);
+  --hero-fade-desktop: linear-gradient(to right, #EAF2F3 0%, rgba(234, 242, 243, 0.6) 8%, rgba(234, 242, 243, 0.12) 20%, transparent 32%);
   --hero-overlay-mobile: linear-gradient(to top, rgba(28, 40, 44, 0.95), rgba(28, 40, 44, 0.4), rgba(28, 40, 44, 0.25));
 }
 
@@ -68,7 +68,7 @@
   --glass-border: rgba(137, 177, 184, 0.3);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --hero-fade-desktop: linear-gradient(to right, #0D1B1E 0%, rgba(13, 27, 30, 0.95) 20%, rgba(13, 27, 30, 0.5) 42%, rgba(13, 27, 30, 0.08) 65%, transparent 100%);
+  --hero-fade-desktop: linear-gradient(to right, #0D1B1E 0%, rgba(13, 27, 30, 0.6) 8%, rgba(13, 27, 30, 0.12) 20%, transparent 32%);
   --hero-overlay-mobile: linear-gradient(to top, rgba(13, 27, 30, 0.98), rgba(13, 27, 30, 0.6), rgba(13, 27, 30, 0.3));
 }
 
@@ -90,7 +90,7 @@
   --glass-border: rgba(232, 186, 172, 0.5);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --hero-fade-desktop: linear-gradient(to right, #FAF0EA 0%, rgba(250, 240, 234, 0.95) 20%, rgba(250, 240, 234, 0.5) 42%, rgba(250, 240, 234, 0.08) 65%, transparent 100%);
+  --hero-fade-desktop: linear-gradient(to right, #FAF0EA 0%, rgba(250, 240, 234, 0.6) 8%, rgba(250, 240, 234, 0.12) 20%, transparent 32%);
   --hero-overlay-mobile: linear-gradient(to top, rgba(61, 21, 10, 0.95), rgba(61, 21, 10, 0.4), rgba(61, 21, 10, 0.25));
 }
 
@@ -101,7 +101,7 @@
   --bg-dark: #28221D;
   --bg-dark-card: #3B332C;
   --text-main: #241E1A;
-  --text-muted: #75695D;
+  --text-muted: #786C60;
   --text-on-dark: #F6F2EC;
   --text-on-dark-muted: #C4B7A9;
   --accent: #857262;
@@ -112,7 +112,7 @@
   --glass-border: rgba(196, 183, 169, 0.45);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --hero-fade-desktop: linear-gradient(to right, #F6F2EC 0%, rgba(246, 242, 236, 0.95) 20%, rgba(246, 242, 236, 0.5) 42%, rgba(246, 242, 236, 0.08) 65%, transparent 100%);
+  --hero-fade-desktop: linear-gradient(to right, #F6F2EC 0%, rgba(246, 242, 236, 0.6) 8%, rgba(246, 242, 236, 0.12) 20%, transparent 32%);
   --hero-overlay-mobile: linear-gradient(to top, rgba(40, 34, 29, 0.95), rgba(40, 34, 29, 0.4), rgba(40, 34, 29, 0.25));
 }
 
