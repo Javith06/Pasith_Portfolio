@@ -177,7 +177,26 @@ body {
 }
 
 .container-px {
-  @apply px-6 md:px-10 lg:px-16 xl:px-24;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 768px) {
+  .container-px {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container-px {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+@media (min-width: 1280px) {
+  .container-px {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
 }
 
 /* ===========================
