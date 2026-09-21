@@ -64,8 +64,8 @@ export default function Navigation() {
             </span>
           </button>
 
-          {/* Desktop Links */}
-          <ul className="hidden lg:flex items-center gap-8">
+          {/* Desktop & Tablet Links */}
+          <ul className="hidden md:flex items-center gap-4 lg:gap-8">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <button
@@ -93,7 +93,7 @@ export default function Navigation() {
             </a>
             <button
               id="mobile-menu-btn"
-              className="lg:hidden p-2 -mr-2"
+              className="md:hidden p-2 -mr-2"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             >

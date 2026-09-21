@@ -46,7 +46,12 @@ export default function Hero() {
           - On mobile (< lg): Full bleed background
           - On desktop (lg+): Right-hand 52% split column with seamless feather blending
       ═══════════════════════════════════════════════ */}
-      <div className="absolute inset-0 lg:left-auto lg:right-0 lg:w-[52%] z-0 overflow-hidden">
+      {/* ═══════════════════════════════════════════════
+          SHARED HERO BACKGROUND VIDEO
+          - On mobile (< md): Full bleed background
+          - On tablet & desktop (md+): Right-hand 52% split column with seamless feather blending
+      ═══════════════════════════════════════════════ */}
+      <div className="absolute inset-0 md:left-auto md:right-0 md:w-[52%] z-0 overflow-hidden">
         <motion.div style={{ y: imgY }} className="absolute inset-0">
           <video
             ref={videoRef}
@@ -60,21 +65,21 @@ export default function Hero() {
             disablePictureInPicture
             disableRemotePlayback
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: '50% 0%', transform: 'translateZ(0)', backfaceVisibility: 'hidden', filter: 'none' }}
+            style={{ objectPosition: '50% 15%', transform: 'translateZ(0)', backfaceVisibility: 'hidden', filter: 'none' }}
           />
 
           {/* Overlays (dynamic per active theme) */}
           {/* Mobile dark gradient overlay */}
-          <div className="absolute inset-0 lg:hidden" style={{ background: 'var(--hero-overlay-mobile)' }} />
-          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/50 to-transparent lg:hidden" />
+          <div className="absolute inset-0 md:hidden" style={{ background: 'var(--hero-overlay-mobile)' }} />
+          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/50 to-transparent md:hidden" />
 
-          {/* Desktop theme edge fades — subtle feather mingle */}
+          {/* Desktop & Tablet theme edge fades — subtle feather mingle */}
           <div
-            className="hidden lg:block absolute inset-0 transition-all duration-500 pointer-events-none"
+            className="hidden md:block absolute inset-0 transition-all duration-500 pointer-events-none"
             style={{ background: 'var(--hero-fade-desktop)' }}
           />
-          <div className="hidden lg:block absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/10 to-transparent pointer-events-none" />
-          <div className="hidden lg:block absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+          <div className="hidden md:block absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/10 to-transparent pointer-events-none" />
+          <div className="hidden md:block absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
         </motion.div>
       </div>
 
@@ -82,17 +87,17 @@ export default function Hero() {
       {/* Mobile button */}
       <button
         onClick={toggleMute}
-        className="lg:hidden absolute top-20 right-4 z-20 w-9 h-9 rounded-full backdrop-blur-md border flex items-center justify-center shadow-md transition-transform active:scale-95"
+        className="md:hidden absolute top-20 right-4 z-20 w-9 h-9 rounded-full backdrop-blur-md border flex items-center justify-center shadow-md transition-transform active:scale-95"
         style={{ backgroundColor: 'var(--bg-dark)', borderColor: 'var(--border-color)', color: 'var(--text-on-dark)' }}
         aria-label={muted ? 'Turn sound on' : 'Turn sound off'}
       >
         {muted ? <VolumeX size={15} /> : <Volume2 size={15} className="text-amber-300 animate-pulse" />}
       </button>
 
-      {/* Desktop button */}
+      {/* Tablet & Desktop button */}
       <button
         onClick={toggleMute}
-        className="hidden lg:flex absolute top-24 right-8 z-20 w-11 h-11 rounded-full backdrop-blur-md border items-center justify-center shadow-lg transition-all active:scale-95 cursor-pointer"
+        className="hidden md:flex absolute top-24 right-8 z-20 w-11 h-11 rounded-full backdrop-blur-md border items-center justify-center shadow-lg transition-all active:scale-95 cursor-pointer"
         style={{ backgroundColor: 'var(--bg-dark)', borderColor: 'var(--border-color)', color: 'var(--text-on-dark)' }}
         aria-label={muted ? 'Turn sound on' : 'Turn sound off'}
       >
@@ -100,17 +105,17 @@ export default function Hero() {
       </button>
 
       {/* ═══════════════════════════════════════════════
-          TEXT — bottom overlay on mobile, left column on desktop
+          TEXT — bottom overlay on mobile, left column on tablet & desktop
       ═══════════════════════════════════════════════ */}
       <motion.div
         style={{ y: textY, opacity: fadeOp, minHeight: '100svh' }}
         className={`
           relative z-10 flex flex-col
-          /* mobile & tablet portrait: justify end, max-w container, responsive padding */
-          justify-end px-5 sm:px-8 md:px-10 pb-14 sm:pb-16 md:pb-20 pt-28 sm:pt-32 md:pt-36 md:max-w-2xl
-          /* desktop & tablet landscape: left column split, centered vertically */
-          lg:justify-center
-          lg:w-[54%] lg:max-w-none lg:px-12 xl:px-20 lg:pt-32 lg:pb-16
+          /* mobile: justify end */
+          justify-end px-5 sm:px-8 pb-14 pt-28
+          /* tablet & desktop: left side split column, centered vertically */
+          md:justify-center
+          md:w-[54%] md:px-10 lg:px-16 xl:px-24 md:pt-32 md:pb-16
         `}
       >
         {/* Eyebrow */}
@@ -118,10 +123,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: [0.19, 1, 0.22, 1] }}
-          className="flex items-center gap-3 mb-3 lg:mb-7"
+          className="flex items-center gap-3 mb-3 md:mb-7"
         >
-          <div className="w-5 h-px bg-white/50 lg:bg-[var(--text-muted)]" />
-          <p className="text-[9px] sm:text-[10px] font-sans font-light tracking-ultra-wide uppercase text-white/70 lg:text-[var(--text-muted)]">
+          <div className="w-5 h-px bg-white/50 md:bg-[var(--text-muted)]" />
+          <p className="text-[9px] sm:text-[10px] font-sans font-light tracking-ultra-wide uppercase text-white/70 md:text-[var(--text-muted)]">
             CLINICAL DENTAL TECHNICIAN · UK
           </p>
         </motion.div>
@@ -131,11 +136,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
-          className="font-serif font-light leading-[1.04] mb-3 lg:mb-6 text-white lg:text-[var(--text-main)]"
-          style={{ fontSize: 'clamp(2.1rem, 5.5vw, 5.5rem)' }}
+          className="font-serif font-light leading-[1.04] mb-3 md:mb-6 text-white md:text-[var(--text-main)]"
+          style={{ fontSize: 'clamp(2.1rem, 5vw, 5.5rem)' }}
         >
           Making dentures<br />
-          <span className="text-white/70 lg:text-[var(--text-muted)]">that change lives.</span>
+          <span className="text-white/70 md:text-[var(--text-muted)]">that change lives.</span>
         </motion.h1>
 
         {/* Divider */}
@@ -143,7 +148,7 @@ export default function Hero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.7, delay: 0.28 }}
-          className="origin-left w-8 h-px bg-white/40 lg:bg-[var(--border-color)] mb-3 lg:mb-5"
+          className="origin-left w-8 h-px bg-white/40 md:bg-[var(--border-color)] mb-3 md:mb-5"
         />
 
         {/* Sub */}
@@ -151,18 +156,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.3 }}
-          className="font-sans text-xs sm:text-sm md:text-base font-light text-white/75 lg:text-[var(--text-muted)] leading-relaxed mb-6 lg:mb-8 max-w-sm lg:max-w-md"
+          className="font-sans text-xs sm:text-sm md:text-base font-light text-white/75 md:text-[var(--text-muted)] leading-relaxed mb-6 md:mb-8 max-w-sm md:max-w-md"
         >
           Dentures made and fitted by the same technician — precision,
           care and a personal approach from start to finish.
         </motion.p>
 
-        {/* Floating cards — desktop only (mobile too cluttered on dark bg) */}
+        {/* Floating cards — tablet & desktop */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.36 }}
-          className="hidden lg:flex flex-wrap gap-3 mb-9"
+          className="hidden md:flex flex-wrap gap-3 mb-9"
         >
           {[
             { top: 'MADE BY ME',        bot: 'Every denture, by hand' },
@@ -197,7 +202,7 @@ export default function Hero() {
             onClick={() => scrollTo('#contact')}
             className="inline-flex items-center px-5 py-3 sm:px-6 sm:py-3.5 rounded-full text-[10px] sm:text-[11px] font-sans font-medium tracking-widest uppercase transition-all backdrop-blur-sm
                        border border-white/40 text-white hover:bg-white/10
-                       lg:border-[var(--border-color)] lg:text-[var(--text-main)] lg:hover:bg-[var(--bg-secondary)] lg:backdrop-blur-none"
+                       md:border-[var(--border-color)] md:text-[var(--text-main)] md:hover:bg-[var(--bg-secondary)] md:backdrop-blur-none"
           >
             GET IN TOUCH
           </button>
@@ -209,8 +214,8 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
           onClick={() => scrollTo('#differentiator')}
-          className="flex items-center gap-2 mt-6 lg:mt-11 text-[9px] sm:text-[10px] font-sans font-light tracking-ultra-wide uppercase
-                     text-white/35 hover:text-white/60 lg:text-[var(--text-muted)] lg:hover:text-[var(--text-main)]
+          className="flex items-center gap-2 mt-6 md:mt-11 text-[9px] sm:text-[10px] font-sans font-light tracking-ultra-wide uppercase
+                     text-white/35 hover:text-white/60 md:text-[var(--text-muted)] md:hover:text-[var(--text-main)]
                      transition-colors w-max"
           aria-label="Scroll down"
         >
