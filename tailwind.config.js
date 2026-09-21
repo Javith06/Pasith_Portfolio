@@ -4,19 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        'warm-white': '#F7F6F4',
-        'warm-offwhite': '#EFEDE9',
-        silver: '#C8C4BE',
+        'warm-white': 'var(--bg-warm-white)',
+        'warm-offwhite': 'var(--bg-warm-offwhite)',
+        silver: 'var(--color-silver)',
         charcoal: {
-          DEFAULT: '#2C2A28',
-          light: '#3E3C39',
-          mid: '#7A7570',
+          DEFAULT: 'var(--color-charcoal)',
+          light: 'var(--color-charcoal-light)',
+          mid: 'var(--color-charcoal-mid)',
         },
-        stone: '#9E9890',
+        stone: 'var(--color-stone)',
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif)', 'Cormorant Garamond', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         'ultra-wide': '0.3em',

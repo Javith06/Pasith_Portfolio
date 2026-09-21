@@ -3,6 +3,85 @@
 @tailwind utilities;
 
 /* ===========================
+   THEME CSS VARIABLES
+   =========================== */
+
+/* 1. PRIMARY MINIMALIST (Default Warm Cream & Charcoal) */
+:root, [data-theme="primary"] {
+  --bg-warm-white: #F7F6F4;
+  --bg-warm-offwhite: #EFEDE9;
+  --color-silver: #C8C4BE;
+  --color-charcoal: #2C2A28;
+  --color-charcoal-light: #3E3C39;
+  --color-charcoal-mid: #7A7570;
+  --color-stone: #9E9890;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --card-glass-bg: rgba(247, 246, 244, 0.82);
+  --card-glass-border: rgba(200, 196, 190, 0.45);
+}
+
+/* 2. AESTHETICS LAB (Soft Dust Teal, Blue-Grey & Clean White) */
+[data-theme="aesthetics"] {
+  --bg-warm-white: #EFF5F6;
+  --bg-warm-offwhite: #E1EBEB;
+  --color-silver: #B8CBCF;
+  --color-charcoal: #1A262B;
+  --color-charcoal-light: #2A3B42;
+  --color-charcoal-mid: #526C75;
+  --color-stone: #7899A3;
+  --font-serif: 'Jost', 'Inter', sans-serif;
+  --font-sans: 'Jost', sans-serif;
+  --card-glass-bg: rgba(239, 245, 246, 0.85);
+  --card-glass-border: rgba(184, 203, 207, 0.5);
+}
+
+/* 3. FUTURISTIC GLASS (Deep Emerald, Cyber Teal & Glass Metallic) */
+[data-theme="web3-glass"] {
+  --bg-warm-white: #172428;
+  --bg-warm-offwhite: #1E3036;
+  --color-silver: #4B6E75;
+  --color-charcoal: #EBF5F5;
+  --color-charcoal-light: #C2E0E0;
+  --color-charcoal-mid: #89B5BC;
+  --color-stone: #5F8F96;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --card-glass-bg: rgba(30, 48, 54, 0.65);
+  --card-glass-border: rgba(137, 181, 188, 0.25);
+}
+
+/* 4. WARM TERRACOTTA (Rich Burnt Amber, Warm Clay & Copper Accent) */
+[data-theme="terracotta"] {
+  --bg-warm-white: #FAF4F0;
+  --bg-warm-offwhite: #F3E7DF;
+  --color-silver: #DDBDA8;
+  --color-charcoal: #3D1C11;
+  --color-charcoal-light: #59291B;
+  --color-charcoal-mid: #8C5243;
+  --color-stone: #B07C6E;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --card-glass-bg: rgba(250, 244, 240, 0.85);
+  --card-glass-border: rgba(221, 189, 168, 0.45);
+}
+
+/* 5. LONDON EDITORIAL (High-Fashion Soft Nude, Taupe & Luxe Serif) */
+[data-theme="london-editorial"] {
+  --bg-warm-white: #F5F1EC;
+  --bg-warm-offwhite: #EAE3DA;
+  --color-silver: #C7BBAE;
+  --color-charcoal: #2B2520;
+  --color-charcoal-light: #423A33;
+  --color-charcoal-mid: #786D62;
+  --color-stone: #9C8F82;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --card-glass-bg: rgba(245, 241, 236, 0.85);
+  --card-glass-border: rgba(199, 187, 174, 0.45);
+}
+
+/* ===========================
    BASE & RESET
    =========================== */
 *, *::before, *::after {
@@ -16,17 +95,18 @@ html {
 }
 
 body {
-  background-color: #F7F6F4;
-  color: #2C2A28;
-  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-warm-white);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ===========================
    TYPOGRAPHY
    =========================== */
 .font-serif {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-serif);
 }
 
 /* ===========================
@@ -36,34 +116,22 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #EFEDE9;
+  background: var(--bg-warm-offwhite);
 }
 ::-webkit-scrollbar-thumb {
-  background: #C8C4BE;
+  background: var(--color-silver);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7A7570;
+  background: var(--color-charcoal-mid);
 }
 
 /* ===========================
    SELECTION
    =========================== */
 ::selection {
-  background: #2C2A28;
-  color: #F7F6F4;
-}
-
-/* ===========================
-   REDUCED MOTION
-   =========================== */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  background: var(--color-charcoal);
+  color: var(--bg-warm-white);
 }
 
 /* ===========================
@@ -78,31 +146,27 @@ body {
 }
 
 /* ===========================
-   GLASS CARD — LIGHT
+   GLASS CARD — DYNAMIC THEME
    =========================== */
 .glass-card {
-  background: rgba(247, 246, 244, 0.82);
+  background: var(--card-glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(200, 196, 190, 0.45);
+  border: 1px solid var(--card-glass-border);
   border-radius: 16px;
   box-shadow: 
-    0 8px 32px rgba(44, 42, 40, 0.08),
-    0 1px 4px rgba(44, 42, 40, 0.05);
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* ===========================
-   GLASS CARD — DARK (hero)
+   NAV FROSTED
    =========================== */
-.glass-card-dark {
-  background: rgba(20, 18, 16, 0.45);
+.nav-frosted {
+  background: var(--card-glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.25),
-    0 1px 4px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid var(--card-glass-border);
 }
 
 /* ===========================
@@ -120,7 +184,7 @@ body {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #2C2A28;
+  background: var(--color-charcoal);
   cursor: ew-resize;
   display: flex;
   align-items: center;
@@ -132,11 +196,12 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #2C2A28;
+  background: var(--color-charcoal);
+  color: var(--bg-warm-white);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 12px rgba(44,42,40,0.3);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
   cursor: ew-resize;
   touch-action: none;
 }
@@ -160,25 +225,6 @@ body {
 }
 
 /* ===========================
-   LOADING SHIMMER
-   =========================== */
-@keyframes shimmer {
-  from { background-position: -200% 0; }
-  to { background-position: 200% 0; }
-}
-
-.shimmer {
-  background: linear-gradient(
-    90deg,
-    #EFEDE9 0%,
-    #F7F6F4 50%,
-    #EFEDE9 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s ease infinite;
-}
-
-/* ===========================
    HOVER LIFT
    =========================== */
 .hover-lift {
@@ -188,56 +234,5 @@ body {
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(44, 42, 40, 0.1);
-}
-
-/* ===========================
-   NAV FROSTED
-   =========================== */
-.nav-frosted {
-  background: rgba(247, 246, 244, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(200, 196, 190, 0.3);
-}
-
-/* ===========================
-   ACCORDION
-   =========================== */
-.accordion-content {
-  overflow: hidden;
-}
-
-/* ===========================
-   VIDEO PLAY OVERLAY
-   =========================== */
-.video-play-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(44, 42, 40, 0.35);
-  transition: background 0.3s ease;
-}
-
-.video-play-overlay:hover {
-  background: rgba(44, 42, 40, 0.5);
-}
-
-.play-btn {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: rgba(247, 246, 244, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1),
-              box-shadow 0.3s ease;
-}
-
-.play-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 32px rgba(44, 42, 40, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }

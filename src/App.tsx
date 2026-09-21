@@ -13,10 +13,11 @@ import ThirtyTwo from './components/ThirtyTwo'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ThemeSwitcher from './components/ThemeSwitcher'
 
 function App() {
   return (
-    <div className="min-h-screen bg-warm-white">
+    <div className="min-h-screen bg-warm-white text-charcoal">
       <Navigation />
       <main>
         <Hero />
@@ -34,6 +35,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ThemeSwitcher />
     </div>
   )
 }
