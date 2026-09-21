@@ -42,11 +42,11 @@ export default function Hero() {
     >
 
       {/* ═══════════════════════════════════════════════
-          SHARED HERO BACKGROUND VIDEO (Single video element to prevent echo/double audio)
+          SHARED HERO BACKGROUND VIDEO
           - On mobile (< lg): Full bleed background
-          - On desktop (lg+): Right-hand 46% split column
+          - On desktop (lg+): Right-hand 52% split column with seamless feather blending
       ═══════════════════════════════════════════════ */}
-      <div className="absolute inset-0 lg:left-auto lg:right-0 lg:w-[46%] z-0">
+      <div className="absolute inset-0 lg:left-auto lg:right-0 lg:w-[52%] z-0 overflow-hidden">
         <motion.div style={{ y: imgY }} className="absolute inset-0">
           <video
             ref={videoRef}
@@ -68,10 +68,13 @@ export default function Hero() {
           <div className="absolute inset-0 lg:hidden" style={{ background: 'var(--hero-overlay-mobile)' }} />
           <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/50 to-transparent lg:hidden" />
 
-          {/* Desktop theme edge fades */}
-          <div className="hidden lg:block absolute inset-0 transition-all duration-500" style={{ background: 'var(--hero-fade-desktop)' }} />
-          <div className="hidden lg:block absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/10 to-transparent" />
-          <div className="hidden lg:block absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/10 to-transparent" />
+          {/* Desktop theme edge fades — subtle feather mingle */}
+          <div
+            className="hidden lg:block absolute inset-0 transition-all duration-500 pointer-events-none"
+            style={{ background: 'var(--hero-fade-desktop)' }}
+          />
+          <div className="hidden lg:block absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/10 to-transparent pointer-events-none" />
+          <div className="hidden lg:block absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
         </motion.div>
       </div>
 
