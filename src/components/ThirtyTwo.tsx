@@ -176,70 +176,105 @@ export default function ThirtyTwo() {
       className="relative bg-warm-white py-24 md:py-36 overflow-hidden"
       aria-label="32 teeth — every smile is personal"
     >
-      {/* Giant background 32 */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0" aria-hidden="true">
-        <span className="font-serif font-light text-charcoal/[0.02] leading-none"
-          style={{ fontSize: 'clamp(16rem, 35vw, 36rem)' }}>
+      {/* Subtle background watermark */}
+      <div className="absolute top-12 right-12 pointer-events-none select-none overflow-hidden z-0 opacity-[0.02]" aria-hidden="true">
+        <span className="font-serif font-light text-charcoal text-[22rem] leading-none">
           32
         </span>
       </div>
 
       <div className="container-px relative z-10">
-        {/* ── Top Header + 3D Artwork Grid ── */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16 md:mb-20">
-          {/* Left Text + Stats Column */}
-          <div className="lg:col-span-7 space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7 }}
-            >
-              <p className="text-[11px] font-sans font-light tracking-ultra-wide uppercase text-charcoal-mid mb-4">
-                32 · THE NUMBER THAT MATTERS
-              </p>
-              <h2 className="font-serif font-light text-charcoal leading-[1.05] mb-5"
-                style={{ fontSize: 'clamp(2.4rem, 5vw, 4.2rem)' }}>
-                32 teeth.<br />
-                <em className="text-charcoal/55">One very personal smile.</em>
-              </h2>
-              <p className="font-sans text-sm md:text-base font-light text-charcoal-mid leading-relaxed max-w-xl">
-                Every tooth is a decision. Hover or tap any tooth in the arch below — each one carries a thought about what makes a denture truly personal.
-              </p>
-            </motion.div>
+        {/* ── Section Header ── */}
+        <div className="max-w-3xl mb-12 lg:mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="text-[11px] font-sans font-light tracking-ultra-wide uppercase text-charcoal-mid mb-4">
+              32 · THE NUMBER THAT MATTERS
+            </p>
+            <h2 className="font-serif font-light text-charcoal leading-[1.05] mb-5"
+              style={{ fontSize: 'clamp(2.4rem, 5vw, 4.2rem)' }}>
+              32 teeth.<br />
+              <em className="text-charcoal/55">One very personal smile.</em>
+            </h2>
+            <p className="font-sans text-sm md:text-base font-light text-charcoal-mid leading-relaxed">
+              Every tooth is a decision. Hover or tap any tooth in the arch below — each one carries a thought about what makes a denture truly personal.
+            </p>
+          </motion.div>
+        </div>
 
-            {/* Stat strip */}
+        {/* ── Content Grid: Left Arch & Stats, Right 3D Sculpture ── */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-16">
+          {/* Left: Interactive Dental Arch + Stat Cards */}
+          <div className="lg:col-span-7 space-y-12">
+            {/* Stat Cards */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.15 }}
+              className="grid grid-cols-3 gap-3 sm:gap-6 p-4 sm:p-6 bg-warm-white/70 border border-silver/30 rounded-2xl backdrop-blur-sm"
             >
-              <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-4 border-t border-silver/30">
-                {[
-                  { num: '32', label: 'Teeth in a full adult mouth' },
-                  { num: '1', label: 'Technician, start to finish' },
-                  { num: '∞', label: 'Unique smile configurations' },
-                ].map(s => (
-                  <div key={s.label} className="flex flex-col gap-1.5">
-                    <span className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal leading-none">{s.num}</span>
-                    <span className="text-[10px] font-sans font-light text-charcoal-mid uppercase tracking-wide leading-snug">{s.label}</span>
-                  </div>
-                ))}
+              {[
+                { num: '32', label: 'Teeth in full mouth' },
+                { num: '1', label: 'Technician start to finish' },
+                { num: '∞', label: 'Smile configurations' },
+              ].map(s => (
+                <div key={s.label} className="flex flex-col gap-1">
+                  <span className="font-serif text-3xl sm:text-4xl font-light text-charcoal leading-none">{s.num}</span>
+                  <span className="text-[9px] sm:text-[10px] font-sans font-light text-charcoal-mid uppercase tracking-wide leading-tight">{s.label}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* ── INTERACTIVE ARCH ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.25, ease: [0.19, 1, 0.22, 1] }}
+              className="relative inline-flex flex-col items-center w-full"
+              style={{ gap: '2px' }}
+            >
+              {/* Hint */}
+              <p className="text-[10px] font-sans font-light text-charcoal-mid/60 tracking-widest uppercase mb-6 self-start">
+                ↕ touch any tooth
+              </p>
+
+              {/* UPPER arch — 16 teeth */}
+              <div className="relative">
+                <Arch start={0} count={16} isUpper={true} />
+                {/* Gum line */}
+                <div className="mt-1 mx-auto w-[90%] h-[6px] rounded-b-full"
+                  style={{ background: 'linear-gradient(to bottom, #e8cfc8, #ddc0b8)' }} />
+              </div>
+
+              {/* Bite gap */}
+              <div className="h-5 flex items-center justify-center w-full">
+                <div className="w-full h-px bg-silver/30" />
+              </div>
+
+              {/* LOWER arch — 16 teeth */}
+              <div className="relative">
+                {/* Gum line */}
+                <div className="mb-1 mx-auto w-[90%] h-[6px] rounded-t-full"
+                  style={{ background: 'linear-gradient(to top, #e8cfc8, #ddc0b8)' }} />
+                <Arch start={16} count={16} isUpper={false} />
               </div>
             </motion.div>
           </div>
 
-          {/* Right 3D Mouth Sculpture Column */}
+          {/* Right: 3D Mouth Sculpture Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
-            className="lg:col-span-5 w-full max-w-md mx-auto lg:max-w-none"
+            className="lg:col-span-5 w-full max-w-sm sm:max-w-md mx-auto lg:max-w-none"
           >
             <motion.div
-              animate={{ y: [0, -10, 0], rotate: [-1, 1, -1] }}
+              animate={{ y: [0, -8, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/60 backdrop-blur-md bg-warm-white/40"
-              style={{ filter: 'drop-shadow(0 15px 30px rgba(44,42,40,0.12))' }}
+              className="relative rounded-3xl overflow-hidden shadow-xl border border-white/60 backdrop-blur-md bg-warm-white/40"
             >
               <img
                 src="/images/aesthetic_teeth_3d.png"
