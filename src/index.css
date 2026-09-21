@@ -96,24 +96,24 @@
 
 /* 5. LONDON EDITORIAL (Inspired by Image 5 - Cashmere Nude & Espresso) */
 [data-theme="london-editorial"] {
-  --bg-primary: #F6F2EC;
-  --bg-secondary: #EAE2D7;
-  --bg-dark: #28221D;
-  --bg-dark-card: #3B332C;
+  --bg-primary: #F2EBE1;
+  --bg-secondary: #E7DDD0;
+  --bg-dark: #2A221C;
+  --bg-dark-card: #3D322B;
   --text-main: #241E1A;
-  --text-muted: #786C60;
-  --text-on-dark: #F6F2EC;
-  --text-on-dark-muted: #C4B7A9;
-  --accent: #857262;
-  --accent-hover: #6E5E50;
-  --accent-text: #F6F2EC;
-  --border-color: rgba(196, 183, 169, 0.45);
-  --glass-bg: rgba(246, 242, 236, 0.88);
-  --glass-border: rgba(196, 183, 169, 0.45);
+  --text-muted: #786B5D;
+  --text-on-dark: #F7F2EB;
+  --text-on-dark-muted: #C9BBAA;
+  --accent: #837160;
+  --accent-hover: #6C5C4E;
+  --accent-text: #F7F2EB;
+  --border-color: rgba(196, 180, 162, 0.45);
+  --glass-bg: rgba(247, 242, 235, 0.92);
+  --glass-border: rgba(196, 180, 162, 0.5);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --hero-fade-desktop: linear-gradient(to right, #F6F2EC 0%, rgba(246, 242, 236, 0.6) 8%, rgba(246, 242, 236, 0.12) 20%, transparent 32%);
-  --hero-overlay-mobile: linear-gradient(to top, rgba(40, 34, 29, 0.95), rgba(40, 34, 29, 0.4), rgba(40, 34, 29, 0.25));
+  --hero-fade-desktop: linear-gradient(to right, #F2EBE1 0%, rgba(242, 235, 225, 0.6) 8%, rgba(242, 235, 225, 0.12) 20%, transparent 32%);
+  --hero-overlay-mobile: linear-gradient(to top, rgba(42, 34, 28, 0.95), rgba(42, 34, 28, 0.4), rgba(42, 34, 28, 0.25));
 }
 
 /* ===========================

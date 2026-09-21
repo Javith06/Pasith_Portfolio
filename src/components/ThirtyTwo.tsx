@@ -177,80 +177,81 @@ export default function ThirtyTwo() {
       aria-label="32 teeth — every smile is personal"
     >
       {/* Giant background 32 */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden="true">
-        <span className="font-serif font-light text-charcoal/[0.035] leading-none"
-          style={{ fontSize: 'clamp(20rem, 45vw, 42rem)' }}>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0" aria-hidden="true">
+        <span className="font-serif font-light text-charcoal/[0.02] leading-none"
+          style={{ fontSize: 'clamp(16rem, 35vw, 36rem)' }}>
           32
         </span>
       </div>
 
-      {/* Floating 3D aesthetic mouth art (Visible on mobile & desktop) */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 30 }}
-        animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
-        transition={{ duration: 1, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
-        className="mb-12 lg:mb-0 lg:absolute lg:right-4 lg:top-1/2 lg:-translate-y-1/2 w-full max-w-sm md:max-w-md lg:w-[28rem] xl:w-[32rem] z-10 mx-auto"
-        aria-hidden="true"
-      >
-        <motion.div
-          animate={{ y: [0, -14, 0], rotate: [-1.5, 1.5, -1.5] }}
-          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/60 backdrop-blur-md bg-warm-white/40"
-          style={{ filter: 'drop-shadow(0 20px 40px rgba(44,42,40,0.15))' }}
-        >
-          <img
-            src="/images/aesthetic_teeth_3d.png"
-            alt="3D Aesthetic Teeth Sculpture"
-            className="w-full h-auto object-cover rounded-3xl transform scale-105 hover:scale-110 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-white/10 pointer-events-none" />
-          <div className="absolute bottom-4 left-5 right-5 glass-card px-4 py-2.5 flex items-center justify-between">
-            <span className="text-[10px] font-sans font-semibold tracking-widest uppercase text-charcoal">3D CRAFTSMANSHIP</span>
-            <span className="text-[9px] font-sans font-light text-charcoal-mid uppercase">BESPOKE ANATOMY</span>
-          </div>
-        </motion.div>
-      </motion.div>
-
       <div className="container-px relative z-10">
-        {/* ── Header ── */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16 md:mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-[11px] font-sans font-light tracking-ultra-wide uppercase text-charcoal-mid mb-5">
-              32 · THE NUMBER THAT MATTERS
-            </p>
-            <h2 className="font-serif font-light text-charcoal leading-[1.05] mb-5"
-              style={{ fontSize: 'clamp(2.4rem, 5vw, 4.2rem)' }}>
-              32 teeth.<br />
-              <em className="text-charcoal/55">One very personal smile.</em>
-            </h2>
-            <p className="font-sans text-sm md:text-base font-light text-charcoal-mid leading-relaxed">
-              Every tooth is a decision. Hover or tap any tooth in the arch below — each one carries a thought about what makes a denture truly personal.
-            </p>
-          </motion.div>
+        {/* ── Top Header + 3D Artwork Grid ── */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16 md:mb-20">
+          {/* Left Text + Stats Column */}
+          <div className="lg:col-span-7 space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7 }}
+            >
+              <p className="text-[11px] font-sans font-light tracking-ultra-wide uppercase text-charcoal-mid mb-4">
+                32 · THE NUMBER THAT MATTERS
+              </p>
+              <h2 className="font-serif font-light text-charcoal leading-[1.05] mb-5"
+                style={{ fontSize: 'clamp(2.4rem, 5vw, 4.2rem)' }}>
+                32 teeth.<br />
+                <em className="text-charcoal/55">One very personal smile.</em>
+              </h2>
+              <p className="font-sans text-sm md:text-base font-light text-charcoal-mid leading-relaxed max-w-xl">
+                Every tooth is a decision. Hover or tap any tooth in the arch below — each one carries a thought about what makes a denture truly personal.
+              </p>
+            </motion.div>
 
-          {/* Stat strip */}
+            {/* Stat strip */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.15 }}
+            >
+              <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-4 border-t border-silver/30">
+                {[
+                  { num: '32', label: 'Teeth in a full adult mouth' },
+                  { num: '1', label: 'Technician, start to finish' },
+                  { num: '∞', label: 'Unique smile configurations' },
+                ].map(s => (
+                  <div key={s.label} className="flex flex-col gap-1.5">
+                    <span className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal leading-none">{s.num}</span>
+                    <span className="text-[10px] font-sans font-light text-charcoal-mid uppercase tracking-wide leading-snug">{s.label}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right 3D Mouth Sculpture Column */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="flex flex-col justify-end"
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
+            className="lg:col-span-5 w-full max-w-md mx-auto lg:max-w-none"
           >
-            <div className="grid grid-cols-3 gap-6">
-              {[
-                { num: '32', label: 'Teeth in a full adult mouth' },
-                { num: '1', label: 'Technician, start to finish' },
-                { num: '∞', label: 'Unique smile configurations' },
-              ].map(s => (
-                <div key={s.label} className="flex flex-col gap-2">
-                  <span className="font-serif text-4xl md:text-5xl font-light text-charcoal leading-none">{s.num}</span>
-                  <span className="text-[10px] font-sans font-light text-charcoal-mid uppercase tracking-wide leading-snug">{s.label}</span>
-                </div>
-              ))}
-            </div>
+            <motion.div
+              animate={{ y: [0, -10, 0], rotate: [-1, 1, -1] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/60 backdrop-blur-md bg-warm-white/40"
+              style={{ filter: 'drop-shadow(0 15px 30px rgba(44,42,40,0.12))' }}
+            >
+              <img
+                src="/images/aesthetic_teeth_3d.png"
+                alt="3D Aesthetic Teeth Sculpture"
+                className="w-full h-auto object-cover rounded-3xl transform hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-white/10 pointer-events-none" />
+              <div className="absolute bottom-4 left-5 right-5 glass-card px-4 py-2.5 flex items-center justify-between">
+                <span className="text-[10px] font-sans font-semibold tracking-widest uppercase text-charcoal">3D CRAFTSMANSHIP</span>
+                <span className="text-[9px] font-sans font-light text-charcoal-mid uppercase">BESPOKE ANATOMY</span>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
 

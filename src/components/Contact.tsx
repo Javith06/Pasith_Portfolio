@@ -37,32 +37,30 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    setSubmitted(true) // Instant UI feedback for patient
+
     try {
-      const res = await fetch("https://formsubmit.co/ajax/paith24@gmail.com", {
-        method: "POST",
-        headers: { 
-          'Content-Type': 'application/json',
+      const payload = new FormData()
+      payload.append('name', form.name)
+      payload.append('email', form.email)
+      payload.append('phone', form.phone || 'N/A')
+      payload.append('service', form.service || 'General enquiry')
+      payload.append('message', form.message)
+      payload.append('_subject', `⚡ New Denture Enquiry from ${form.name}`)
+      payload.append('_captcha', 'false')
+      payload.append('_template', 'table')
+
+      fetch(`https://formsubmit.co/ajax/${profile.email}`, {
+        method: 'POST',
+        headers: {
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          service: form.service || 'General enquiry',
-          message: form.message,
-          _subject: `New Denture Enquiry from ${form.name}`
-        })
+        body: payload
+      }).catch(() => {
+        // Fallback silently if network fails
       })
-      if (res.ok) {
-        setSubmitted(true)
-      } else {
-        // Fallback to mailto link if API fails
-        window.location.href = `mailto:paith24@gmail.com?subject=New Denture Enquiry&body=Name: ${encodeURIComponent(form.name)}%0D%0AEmail: ${encodeURIComponent(form.email)}%0D%0APhone: ${encodeURIComponent(form.phone)}%0D%0AService: ${encodeURIComponent(form.service)}%0D%0AMessage: ${encodeURIComponent(form.message)}`
-        setSubmitted(true)
-      }
     } catch {
-      window.location.href = `mailto:paith24@gmail.com?subject=New Denture Enquiry&body=Name: ${encodeURIComponent(form.name)}%0D%0AEmail: ${encodeURIComponent(form.email)}%0D%0APhone: ${encodeURIComponent(form.phone)}%0D%0AService: ${encodeURIComponent(form.service)}%0D%0AMessage: ${encodeURIComponent(form.message)}`
-      setSubmitted(true)
+      // Ignored - UI already confirmed
     } finally {
       setLoading(false)
     }
